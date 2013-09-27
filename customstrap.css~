@@ -1,7 +1,6 @@
 body {
     background-color: #DDDDDD;
     margin: 0 auto;
-    min-width: 900px;
 }
 .fixed {
     max-width: 90% !important;
