@@ -101,3 +101,11 @@ textarea {
     margin-top:15px;
     width: 100%;
 }
+.btn.btn-primary{
+    background-color: #373737;
+    border-color: #D2D2D2;
+}
+.btn.btn-primary:hover {
+    background-color: #222;
+    color: #3f80cc;
+}
