@@ -15,16 +15,8 @@
 
         <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="customstrap.css" type="text/css" />
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("#fluidjs").width($("#cont").innerWidth() - 468);
-                $(window).resize(function(){
-                    $("#fluidjs").width($("#cont").innerWidth() - 468);
-                });
-            });
-        </script>
     <body>
-        <div class="container fixed" id="cont">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="navbar">
@@ -35,251 +27,248 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="container fleft" id="fluidjs">            
-                <div class="row">
-                    <div class="col-5">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading nomarg">Popout Options</div>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <strong>Popout Behavior</strong><br/>
+            </div>         
+              <div class="row">
+                  <div class="col-6">
+                      <div class="panel panel-primary">
+                          <div class="panel-heading nomarg">Popout Options</div>
+                          <ul class="list-group">
+                              <li class="list-group-item">
+                                  <strong>Popout Behavior</strong><br/>
 
-                                    <div class="radio">
-                                      <label>
-                                        <input type="radio" name="popout" id="popout_default" value="default" />
-                                        By default
-                                      </label>
-                                    </div>
-
-                                    <div class="radio">
-                                      <label>
-                                        <input type="radio" name="popout" id="popout_button" value="button" />
-                                        Button in popup
-                                      </label>
-                                    </div>
-
-                                    <div class="radio">
-                                      <label>
-                                        <input type="radio" name="popout" id="popout_never" value="never" />
-                                        Never
-                                      </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Popout Formatting</strong><br/>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="balance" />
-                                        Show L$ balance
-                                      </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="groups" />
-                                        Show groups tab
-                                      </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="version" />
-                                        Show version
-                                      </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="count_header" />
-                                        Show online count in header
-                                      </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="link_names" />
-                                        Link to profiles
-                                      </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="images" />
-                                        Show profile pictures
-                                      </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="location_icon" />
-                                        Show location icon
-                                      </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                  <strong>Link Format</strong><br/>
                                   <div class="radio">
                                     <label>
-                                      <input type="radio" name="location_link_format" id="location_link_format_SLURL" value="SLURL" />
-                                      SLURL
+                                      <input type="radio" name="popout" id="popout_default" value="default" />
+                                      By default
                                     </label>
                                   </div>
+
                                   <div class="radio">
                                     <label>
-                                      <input type="radio" name="location_link_format" id="location_link_format_native" value="native" />
-                                      secondlife://
+                                      <input type="radio" name="popout" id="popout_button" value="button" />
+                                      Button in popup
                                     </label>
                                   </div>
-                                </li>
-                                <li class="list-group-item">
-                                  <strong>Name Format</strong><br/>
-                                    <div class="row">
-                                      <div class="col-10">
-                                        <input type="text" id="name_format" class="form-control" placeholder="%UU (%u)"/>
-                                      </div>
-                                      <div class="col-2 nopad">
-                                        <a data-toggle="modal" href="#names" class="largtxt  pull-left">?</a>
-                                      </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-7">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading nomarg">Icon Options</div>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <strong>Icon Online Number</strong><br/>
 
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="count_badge" />
-                                        Show online count
-                                      </label>
-                                    </div>
+                                  <div class="radio">
+                                    <label>
+                                      <input type="radio" name="popout" id="popout_never" value="never" />
+                                      Never
+                                    </label>
+                                  </div>
+                              </li>
+                              <li class="list-group-item">
+                                  <strong>Popout Formatting</strong><br/>
 
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="hide_empty" />
-                                        Hide icon badge text when no friends are online
-                                      </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Colors</strong><br />
-                                    <div class="row">
-                                        <div class="col-2">
-                                          Normal:
-                                        </div>
-                                        <div class="col-10 pull-left">
-                                          <input type='color' value="#40FF80" id="badge_bg_normal">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2">
-                                          Error:
-                                        </div>
-                                        <div class="col-10 pull-left">
-                                          <input type='color' value="#FF0000" id="badge_bg_error">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2">
-                                          Offline:
-                                        </div>
-                                        <div class="col-10 pull-left">
-                                          <input type='color' value="#808080" id="badge_bg_offline">
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="panel panel-primary">
-                            <div class="panel-heading nomarg">Desktop Notifications</div>
-                            <ul class="list-group">
-                                <li class="list-group-item">
                                   <div class="checkbox">
                                     <label>
-                                      <input type="checkbox" id="notify_online" />
-                                      Contact comes online
+                                      <input type="checkbox" id="balance" />
+                                      Show L$ balance
                                     </label>
                                   </div>
-                                  <div class="margleft-20">
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="online_images" />
-                                        Show profile pictures
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="location_online" />
-                                        Show location
-                                      </label>
-                                    </div>
-                                  </div>
-                                </li>
-                                <li class="list-group-item">
+
                                   <div class="checkbox">
                                     <label>
-                                      <input type="checkbox" id="notify_offline" />
-                                      Contact goes offline
+                                      <input type="checkbox" id="groups" />
+                                      Show groups tab
                                     </label>
                                   </div>
-                                  <div class="margleft-20">
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="offline_images" />
-                                        Show profile pictures
-                                      </label>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="version" />
+                                      Show version
+                                    </label>
+                                  </div>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="count_header" />
+                                      Show online count in header
+                                    </label>
+                                  </div>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="link_names" />
+                                      Link to profiles
+                                    </label>
+                                  </div>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="images" />
+                                      Show profile pictures
+                                    </label>
+                                  </div>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="location_icon" />
+                                      Show location icon
+                                    </label>
+                                  </div>
+                              </li>
+                              <li class="list-group-item">
+                                <strong>Link Format</strong><br/>
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="location_link_format" id="location_link_format_SLURL" value="SLURL" />
+                                    SLURL
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="location_link_format" id="location_link_format_native" value="native" />
+                                    secondlife://
+                                  </label>
+                                </div>
+                              </li>
+                              <li class="list-group-item">
+                                <strong>Name Format</strong><br/>
+                                  <div class="row">
+                                    <div class="col-10">
+                                      <input type="text" id="name_format" class="form-control" placeholder="%UU (%u)"/>
                                     </div>
-                                    <div class="margleft-20">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" id="offline_gray" />
-                                          Gray out profile pictures
-                                        </label>
-                                      </div>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" id="location_online" />
-                                        Show location
-                                      </label>
+                                    <div class="col-2 nopad">
+                                      <a data-toggle="modal" href="#names" class="largtxt  pull-left">?</a>
                                     </div>
                                   </div>
-                                </li>
-                                <li class="list-group-item">
-                                  <strong>Name Format</strong><br/>
-                                    <div class="row">
-                                      <div class="col-10">
-                                        <input type="text" id="popup_format" class="form-control" placeholder="%UU (%u)"/>
-                                      </div>
-                                      <div class="col-2 nopad">
-                                        <a data-toggle="modal" href="#names" class="largtxt  pull-left">?</a>
-                                      </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="preview">
-                <div class="panel panel-primary">
-                    <div class="panel-heading nomarg">View</div>
-                      <div class="center-view">
-                        <iframe src="popup.html?dummy=true"></iframe>
+                              </li>                    
+                          </ul>
                       </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading nomarg">Custom CSS</div>
-                      <textarea id="css"></textarea>
-                </div>
-            </div>
+                      <div class="panel panel-primary">
+                          <div class="panel-heading nomarg">View</div>
+                            <div class="center-view">
+                              <iframe src="popup.html?dummy=true"></iframe>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="panel panel-primary">
+                          <div class="panel-heading nomarg">Icon Options</div>
+                          <ul class="list-group">
+                              <li class="list-group-item">
+                                  <strong>Icon Online Number</strong><br/>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="count_badge" />
+                                      Show online count
+                                    </label>
+                                  </div>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="hide_empty" />
+                                      Hide icon badge text when no friends are online
+                                    </label>
+                                  </div>
+                              </li>
+                              <li class="list-group-item">
+                                  <strong>Colors</strong><br />
+                                  <div class="row">
+                                      <div class="col-2">
+                                        Normal:
+                                      </div>
+                                      <div class="col-10 pull-left">
+                                        <input type='color' value="#40FF80" id="badge_bg_normal">
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-2">
+                                        Error:
+                                      </div>
+                                      <div class="col-10 pull-left">
+                                        <input type='color' value="#FF0000" id="badge_bg_error">
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-2">
+                                        Offline:
+                                      </div>
+                                      <div class="col-10 pull-left">
+                                        <input type='color' value="#808080" id="badge_bg_offline">
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="panel panel-primary">
+                          <div class="panel-heading nomarg">Desktop Notifications</div>
+                          <ul class="list-group">
+                              <li class="list-group-item">
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" id="notify_online" />
+                                    Contact comes online
+                                  </label>
+                                </div>
+                                <div class="margleft-20">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="online_images" />
+                                      Show profile pictures
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="location_online" />
+                                      Show location
+                                    </label>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="list-group-item">
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" id="notify_offline" />
+                                    Contact goes offline
+                                  </label>
+                                </div>
+                                <div class="margleft-20">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="offline_images" />
+                                      Show profile pictures
+                                    </label>
+                                  </div>
+                                  <div class="margleft-20">
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" id="offline_gray" />
+                                        Gray out profile pictures
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" id="location_online" />
+                                      Show location
+                                    </label>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="list-group-item">
+                                <strong>Name Format</strong><br/>
+                                  <div class="row">
+                                    <div class="col-10">
+                                      <input type="text" id="popup_format" class="form-control" placeholder="%UU (%u)"/>
+                                    </div>
+                                    <div class="col-2 nopad">
+                                      <a data-toggle="modal" href="#names" class="largtxt  pull-left">?</a>
+                                    </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="panel panel-primary">
+                        <div class="panel-heading nomarg">Custom CSS</div>
+                        <textarea id="css"></textarea>
+                    </div>
+                  </div>
+              </div>
+            </div>            
         </div>
 
 
