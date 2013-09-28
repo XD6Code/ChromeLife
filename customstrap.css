@@ -17,6 +17,7 @@ body {
 }
 iframe {
     width: 375px;
+    height: 225px;
     border: none;
     overflow-x: hidden;
 }
