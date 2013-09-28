@@ -1,14 +1,22 @@
 body {
     background-color: #DDDDDD;
     margin: 0 auto;
-    min-width: 915px;
+    min-width: 900px;
 }
-.fixed {
-  max-width: 90% !important;
+#positioner {
+    position: relative;
+}
+.force {
+    padding-right:435px;
+}
+.preview {
+    width: 405px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 iframe {
-    width: 100%;
-    min-width: 375px;
+    width: 375px;
     border: none;
     overflow-x: hidden;
 }
