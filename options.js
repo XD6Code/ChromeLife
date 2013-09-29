@@ -7,8 +7,7 @@ var strings = ["popup_format", "name_format", "css"];
 var radios = {"popout": ["default", "button", "never"],
               "location_link_format": ["SLURL", "native"]};
 var colors = ["badge_bg_normal", "badge_bg_error", "badge_bg_offline"];
-var dependencies = ["count_badge", "location_icon", "notify_online",
-                    "notify_offline", "offline_images"];
+var dependencies = ["notify_online", "notify_offline", "offline_images"];
 
 var badgeColors = {"last": "badge_bg_normal", "values": {}};
 
@@ -27,17 +26,9 @@ window.onload = function(){
 	}, 100);
 
 	document.getElementById("submit").onclick = save;
-	templates = document.getElementsByClassName('template');
-	for(var i in templates){
-		if(!templates[i].parentNode)
-			continue;
-		var helpLink = document.createElement('a');
-		helpLink.className = 'helpLink';
-		helpLink.href = '#';
-		helpLink.onclick = showHelp;
-		helpLink.innerText = "?";
-		templates[i].parentNode.insertBefore(helpLink, templates[i].nextSibling);
-	}
+	var nameHelp = document.getElementsByClassName('nameHelp');
+	for(var i in nameHelp)
+		nameHelp[i].onclick = showHelp;
 
 	document.getElementById("changelog_link").onclick = showChanges;
 
@@ -75,7 +66,7 @@ window.onload = function(){
 		document.getElementById('notify_online-options').style.display = "none";
 		document.getElementById('notify_offline-options').style.display = "none";
 
-		document.getElementById('notificationLink').style.display = "block";
+		document.getElementById('notificationLink-parent').style.display = "block";
 		document.getElementById('notificationLink').onclick = showNotificationHelp;
 	}
 
@@ -87,6 +78,7 @@ function showChanges(){
 	document.getElementById("format_help").style.display = "none";
 	document.getElementById("changes").style.display = "block";
 	document.getElementById("changes").innerHTML = "";
+	document.getElementById("modal-title").innerHTML = "Changes";
 
 	if(upcoming.length > 0){
 		var h2 = document.createElement('h2');
@@ -175,18 +167,16 @@ function showChanges(){
 			table.appendChild(placeholder);
 		}
 	}document.getElementById("changes").appendChild(table);
-
-	document.getElementById("help").style.display = "block";
 }function showNotificationHelp(){
 	document.getElementById("where_notifications").style.display = "block";
 	document.getElementById("format_help").style.display = "none";
 	document.getElementById("changes").style.display = "none";
-	document.getElementById("help").style.display = "block";
+	document.getElementById("modal-title").innerHTML = "What happened to the notification options?";
 }function showHelp(){
 	document.getElementById("where_notifications").style.display = "none";
 	document.getElementById("format_help").style.display = "block";
 	document.getElementById("changes").style.display = "none";
-	document.getElementById("help").style.display = "block";
+	document.getElementById("modal-title").innerHTML = "Name formats";
 }
 
 function init(){
@@ -274,6 +264,16 @@ function preview(){
 			}
 		}
 	}
+
+	if(options.location_icon)
+		$('#location_icon-options').slideDown();
+	else
+		$('#location_icon-options').slideUp();
+
+	if(options.count_badge)
+		$('#count_badge-options, #colors-header').animate({opacity: 1});
+	else
+		$('#count_badge-options, #colors-header').animate({opacity: 0});
 
 	for(var state in badgeColors.values){
 		var value = $('#' + state).spectrum("get").toHex();

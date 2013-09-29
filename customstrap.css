@@ -16,9 +16,6 @@ body{
     max-width: 1200px !important;
     width: 90%;
 }iframe{
-    width: 375px;
-    height: 225px;
-    border: none;
     overflow-x: hidden;
 }.center-view{
     margin: 20px auto;
@@ -81,6 +78,8 @@ body{
     min-height: 150px;
     margin-top:15px;
     width: 100%;
+    tab-size: 4;
+    font-family: monospace;
 }.btn.btn-primary{
     background-color: #373737;
     border-color: #D2D2D2;
@@ -92,7 +91,7 @@ body{
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: #eee;
+	background-color: rgba(239,239,239,.75);;
 	border-top: 1px solid black;
 	padding: .5em 1em;
 }#save-msg{
@@ -102,4 +101,39 @@ body{
     padding-top:25px;
 }.color {
     width: 100%;
+}#badge{
+	position: relative;
+	top: 4px;
+	right: 12px;
+	font-size: 66%;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	background: linear-gradient(to bottom,  rgba(96, 255, 192, .75) 0%, rgba(21, 85, 43, .75) 100%);
+	border-radius: 3px;
+	font-weight: bold;
+	border: 1px solid #aaa;
+	line-height: 1em;
+	display: inline-block;
+	padding: 0 2px;
+}.sp-replacer{
+	border-radius: 3px;
+}#changes, #notificationLink-parent{
+	display: none;
+}td[rowspan="2"]{
+	vertical-align: top;
+	padding: 0 1em;
+}td[colspan="2"]{
+	height: 1em;
+}th{
+	vertical-align: top;
+	text-align: right;
+}.versionName{
+	text-align: left;
+	font-style: italic;
+}.versionName:before{
+	content: '-- ';
+}.modal-dialog{
+	width: 700px;
+}.disabled{
+	color: #888;
 }

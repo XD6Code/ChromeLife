@@ -25,7 +25,7 @@
 						<img src="ChromeLife_48.png" class="pull-left" alt="ChromeLife" />
 						<span class="navbar-brand">ChromeLife Options</span>
 						<ul class="pull-right nav navbar-nav">
-							<li><a href="#" id="changelog_link">Change Log</a></li>
+							<li><a data-toggle="modal" href="#help" id="changelog_link">Change Log</a></li>
 						</ul>
 					</div>
 				</div>
@@ -35,7 +35,11 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading nomarg">View</div>
 						<div class="center-view">
-							<iframe src="popup.html?dummy=true"></iframe>
+							<iframe src="popup.html?dummy=true" style="width:375px;height:200px;border:none;overflow-x:hidden"></iframe>
+							<br />
+							<iframe id="online_preview" src="notification.html?dummy=true&name=nexus.unplugged&action=online" style="width:300px;height:80px;border:1px solid black"></iframe>
+							<br />
+							<iframe id="offline_preview" src="notification.html?dummy=true&name=nexus&action=offline" style="width:300px;height:80px;border:1px solid black"></iframe>
 						</div>
 					</div>
 					<div class="panel panel-primary">
@@ -124,7 +128,7 @@
 										</label>
 									</div>
 								</li>
-								<li class="list-group-item">
+								<li class="list-group-item" id="location_icon-options">
 									<strong>Link Format</strong><br/>
 									<div class="radio">
 										<label>
@@ -146,7 +150,7 @@
 											<input type="text" id="name_format" class="form-control" placeholder="%UU (%u)"/>
 										</div>
 										<div class="col-2 nopad">
-											<a data-toggle="modal" href="#names" class="largtxt	pull-left">?</a>
+											<a data-toggle="modal" href="#help" class="largtxt pull-left nameHelp">?</a>
 										</div>
 									</div>
 								</li>
@@ -175,9 +179,9 @@
 									</div>
 								</li>
 								<li class="list-group-item">
-									<strong>Colors</strong><br />
+									<strong id="colors-header">Colors</strong><br />
                                     <div class="row">
-                                        <div class="col-10">
+                                        <div class="col-6" id="count_badge-options">
 								            <div class="row">
 									            <div class="col-2">
 										            Normal:
@@ -217,6 +221,9 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading nomarg">Desktop Notifications</div>
 							<ul class="list-group">
+								<li class="list-group-item" id="notificationLink-parent">
+									<a id="notificationLink" data-toggle="modal" href="#help">Where are the other options?</a>
+								</li>
 								<li class="list-group-item">
 									<div class="checkbox">
 										<label>
@@ -224,7 +231,7 @@
 											Contact comes online
 										</label>
 									</div>
-									<div class="margleft-20">
+									<div class="margleft-20" id="notify_online-options">
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" id="online_images" />
@@ -246,14 +253,14 @@
 											Contact goes offline
 										</label>
 									</div>
-									<div class="margleft-20">
+									<div class="margleft-20" id="notify_offline-options">
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" id="offline_images" />
 												Show profile pictures
 											</label>
 										</div>
-										<div class="margleft-20">
+										<div class="margleft-20" id="offline_images-options">
 											<div class="checkbox">
 												<label>
 													<input type="checkbox" id="offline_gray" />
@@ -276,7 +283,7 @@
 											<input type="text" id="popup_format" class="form-control" placeholder="%UU (%u)"/>
 										</div>
 										<div class="col-2 nopad">
-											<a data-toggle="modal" href="#names" class="largtxt	pull-left">?</a>
+											<a data-toggle="modal" href="#help" class="largtxt pull-left nameHelp">?</a>
 										</div>
 									</div>
 								</li>
@@ -292,28 +299,56 @@
 			<span id="save-msg"></span>
 		</footer>
 
-		<div class="modal fade" id="names">
+		<div class="modal fade" id="help">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Name Formats</h4>
+						<h4 class="modal-title" id="modal-title">Help</h4>
 					</div>
 					<div class="modal-body">
-						<p>Name formats are a simple way to specify you would like a user's name to appear. The following options are supported:</p>
-						<ul>
-							<li><strong>%U</strong> - The user's legacy name, with "Resident" trimmed off</li>
-							<li><strong>%UU</strong> - The user's full legacy name, including "Resident"</li>
-							<li><strong>%u</strong> - The user's lowercase legacy name, with "resident" trimmed off</li>
-							<li><strong>%uu</strong> - The user's full lowercase legacy name, including "resident"</li>
-							<li><strong>%F</strong> - The user's first name</li>
-							<li><strong>%f</strong> - The user's first name, lowercase</li>
-							<li><strong>%L</strong> - The user's last name, with "Resident" trimmed off</li>
-							<li><strong>%LL</strong> - The user's last name, including "Resident"</li>
-							<li><strong>%l</strong> - The user's lowercase last name, with "resident" trimmed off</li>
-							<li><strong>%ll</strong> - The user's lowercase last name, including "resident"</li>
-							<li><strong>%D</strong> - The user's display name</li>
-						</ul>
+						<div id="changes"></div>
+						<div id="where_notifications">
+							<p>In Chrome 28 for Windows and ChromeOS, the Chrome team decided to remove the <tt>webkitNotifications.createHTMLNotification</tt> API, which was removed from the official spec for web pages months earlier, but had previously been stated would remain available for extensions to use. The feature has since been removed from Mac, and is slated to be removed from Linux as well.</p>
+							<p>HTML notifications were what allowed you to customize the appearence of notifications to your liking, such as displaying someone's location in the corner, adding colors, or graying out images. There is still a plain text notification API available, which is what's currently being used. It does not allow for any visual customizations.</p>
+							<h3>Looking to the future</h3>
+							<p>In the same update, a new <a href="http://developer.chrome.com/extensions/notifications.html">"rich" notification API</a> was introduced. It allows for certain specific deviations from plain text, but still does not offer anywhere near the amount of customizability as HTML notifications did. Support for these notifications within ChromeLife is planned for the near future. Until then, plain text will be the only option available to users of browsers with updated notification APIs. HTML notifications will still be the preferred method in any browser that still supports them.</p>
+						</div>
+						<div id="format_help">
+							<p>Name formats are a simple way to specify you would like a user's name to appear. The following options are supported:</p>
+							<ul>
+								<li><strong>%U</strong> - The user's legacy name, with &quot;Resident&quot; trimmed off</li>
+								<li><strong>%UU</strong> - The user's full legacy name, including &quot;Resident&quot;</li>
+								<li><strong>%u</strong> - The user's lowercase legacy name, with &quot;resident&quot; trimmed off</li>
+								<li><strong>%uu</strong> - The user's full lowercase legacy name, including &quot;resident&quot;</li>
+								<li><strong>%F</strong> - The user's first name</li>
+								<li><strong>%f</strong> - The user's first name, lowercase</li>
+								<li><strong>%L</strong> - The user's last name, with &quot;Resident&quot; trimmed off</li>
+								<li><strong>%LL</strong> - The user's last name, including &quot;Resident&quot;</li>
+								<li><strong>%l</strong> - The user's lowercase last name, with &quot;resident&quot; trimmed off</li>
+								<li><strong>%ll</strong> - The user's lowercase last name, including &quot;resident&quot;</li>
+								<li><strong>%D</strong> - The user's display name</li>
+							</ul>
+							<h3>Examples</h3>
+							<table>
+								<tr>
+									<td>Nexus Unplugged</td>
+									<td><input type="text" value="%UU" /></td>
+								</tr>
+								<tr>
+									<td>nexus.unplugged</td>
+									<td><input type="text" value="%u" /></td>
+								</tr>
+								<tr>
+									<td>N3XU5 (nexus.unplugged)</td>
+									<td><input type="text" value="%D (%u)" /></td>
+								</tr>
+								<tr>
+									<td>N3XU5 Unplugged</td>
+									<td><input type="text" value="%D %L" /></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
