@@ -2,6 +2,7 @@ body{
     background-color: #DDDDDD;
     margin: 0 auto;
     min-width: 900px;
+    margin-bottom:40px;
 }#positioner{
     position: relative;
 }.force{
@@ -11,6 +12,8 @@ body{
     position: absolute;
     top: 0;
     right: 0;
+}.container{
+    min-width: 90% !important;
 }iframe{
     width: 375px;
     height: 225px;
