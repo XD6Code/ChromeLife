@@ -222,7 +222,8 @@ License: MIT
 .sp-container {
     border-radius: 0;
     background-color: #ECECEC;
-    border: solid 1px #f0c49B;
+    border: solid 1px #CCC;
+    box-shadow: inset 0 0 20px #CCC;
     padding: 0;
 }
 .sp-container, .sp-container button, .sp-container input, .sp-color, .sp-hue
@@ -245,7 +246,7 @@ License: MIT
 /* Input */
 .sp-input-container {
     float:right;
-    width: 100px;
+    width: 75px;
     margin-bottom: 4px;
 }
 .sp-initial-disabled  .sp-input-container {
@@ -253,16 +254,16 @@ License: MIT
 }
 .sp-input {
    font-size: 12px !important;
-   border: 1px inset;
+   border: 1px solid #AAA;
    padding: 4px 5px;
    margin: 0;
    width: 100%;
-   background:transparent;
+   background: #DDD;
    border-radius: 3px;
    color: #222;
 }
 .sp-input:focus  {
-    border: 1px solid orange;
+    border: 1px inset #888;
 }
 .sp-input.sp-validation-error
 {
@@ -315,7 +316,7 @@ License: MIT
 }
 .sp-initial span {
     width: 30px;
-    height: 25px;
+    height: 21px;
     border:none;
     display:block;
     float:left;
@@ -336,13 +337,14 @@ License: MIT
     display:inline-block;
     *zoom: 1;
     *display: inline;
-    border: solid 1px #91765d;
-    background: #eee;
+    border: solid 1px #DDD;
+    background: #EEE;
+    box-shadow: inset 0 0 20px #CCC;
     color: #333;
     vertical-align: middle;
 }
 .sp-replacer:hover, .sp-replacer.sp-active {
-    border-color: #F0C49B;
+    border-color: #CCC;
     color: #111;
 }
 .sp-replacer.sp-disabled {
@@ -362,7 +364,6 @@ License: MIT
     position:relative;
     width:25px;
     height: 20px;
-    border: solid 1px #222;
     margin-right: 5px;
     float:left;
     z-index: 0;

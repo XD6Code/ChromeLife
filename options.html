@@ -1,199 +1,360 @@
 <!DOCTYPE html>
-<html id="options">
+<html lang="en">
 	<head>
 		<title>ChromeLife - Options</title>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+		<script src="jquery-2.0.3.min.js" type="text/javascript"></script>
+		<script src="bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src='spectrum.js'></script>
+		<link rel='stylesheet' href='spectrum.css' />
+
 		<script type="text/javascript" src="versions.js"></script>
 		<script type="text/javascript" src="options.js"></script>
-		<link rel="stylesheet" type="text/css" href="options.css" />
+
+		<link rel="stylesheet" href="options.css" type="text/css" />
 	</head>
 	<body>
-		<header>
-			<img src="ChromeLife_128.png" alt="" />
-			<h1>ChromeLife Options</h1>
-			<a href="#" id="changelog_link">Changelog</a>
-		</header>
-		<table class="options">
-			<tr>
-				<th>Popup</th>
-				<td>
-					Pop out:
-					<input type="radio" name="popout" id="popout_default" value="default" /> <label for="popout_default">By default</label>
-					<input type="radio" name="popout" id="popout_button" value="button" /> <label for="popout_button">Button in popup</label>
-					<input type="radio" name="popout" id="popout_never" value="never" /> <label for="popout_never">Never</label>
-					<br />
-					<input type="checkbox" id="balance" /> <label for="balance">Show L$ balance</label>
-					<br />
-					<input type="checkbox" id="groups" /> <label for="groups">Show groups tab</label>
-					<br />
-					<input type="checkbox" id="version" /> <label for="version">Show version</label>
-					<br />
-					<input type="checkbox" id="count_header" /> <label for="count_header">Show online count in header</label>
-					<br />
-					<input type="checkbox" id="link_names" /> <label for="link_names">Link to profiles</label>
-					<br />
-					<input type="checkbox" id="images" /> <label for="images">Show profile pictures</label>
-					<br />
-					<input type="checkbox" id="location_icon" /> <label for="location_icon">Show location icon</label>
-					<div style="margin-left:1em" id="location_icon-options">
-						Link format:
-						<input type="radio" name="location_link_format" id="location_link_format_SLURL" value="SLURL" /> <label for="location_link_format_SLURL">SLURL</label>
-						<input type="radio" name="location_link_format" id="location_link_format_native" value="native" /> <label for="location_link_format_native">secondlife://</label>
+		<div class="container fixed" id="cont">
+			<div class="row">
+				<div class="col-12">
+					<div class="navbar">
+						<img src="ChromeLife_48.png" class="pull-left" alt="ChromeLife" />
+						<span class="navbar-brand">ChromeLife Options</span>
+						<ul class="pull-right nav navbar-nav">
+							<li><a data-toggle="modal" href="#help" id="changelog_link">Change Log</a></li>
+						</ul>
 					</div>
-					<label for="name_format">Name format:</label> <input type="text" id="name_format" class="template" />
-				</td><td>
-					<iframe src="popup.html?dummy=true" style="width:375px;height:225px;border:none;overflow-x:hidden"></iframe>
-				</td>
-			</tr><tr><td colspan="3" class="hr"></td></tr><tr>
-				<th>Icon</th>
-				<td>
-					<input type="checkbox" id="count_badge" /> <label for="count_badge">Show online count</label>
-					<div style="margin-left:1em" id="count_badge-options">
-						<input type="checkbox" id="hide_empty" /> <label for="hide_empty">Hide icon badge text when no friends are online</label>
-					</div>
-					<table class="colors">
-						<tr>
-							<th colspan="3" style="padding:.5em 0;text-align:left">Background color</th>
-						</tr><tr>
-							<th>
-								<label for="badge_bg_normal">Normal:</label>
-							</th><td>
-								<input type="text" class="color" id="badge_bg_normal" />
-							</td><td>
-								<em>This is what the icon badge background color will normally be</em>
-							</td>
-						</tr><tr>
-							<th>
-								<label for="badge_bg_error">Error:</label>
-							</th><td>
-								<input type="text" class="color" id="badge_bg_error" />
-							</td><td>
-								<em>This color will be used when there is an error that requires your attention</em>
-							</td>
-						</tr><tr>
-							<th>
-								<label for="badge_bg_offline">Offline:</label>
-							</th><td>
-								<input type="text" class="color" id="badge_bg_offline" />
-							</td><td>
-								<em>This color will be used when the extension is unable to connect to secondlife.com</em>
-							</td>
-						</tr>
-					</table>
-				</td><td>
-					<div style="margin-left:150px">
-						<img src="ChromeLife_19.png" />
-						<div id="badge">2</div>
-					</div>
-				</td>
-			</tr><tr><td colspan="3" class="hr"></td></tr><tr>
-				<th>Desktop notifications</th>
-				<td>
-					<a id="notificationLink" href="#">Where are the other options?</a>
-					<div>
-						<input type="checkbox" id="notify_online" /> <label for="notify_online">Contact comes online</label>
-					</div>
-					<div style="margin-left:1em" id="notify_online-options">
-						<input type="checkbox" id="online_images" /> <label for="online_images">Show profile pictures</label>
-						<br />
-						<input type="checkbox" id="location_online" /> <label for="location_online">Show location</label>
-					</div>
-					<div>
-						<input type="checkbox" id="notify_offline" /> <label for="notify_offline">Contact goes offline</label>
-					</div>
-					<div style="margin-left:1em" id="notify_offline-options">
-						<input type="checkbox" id="offline_images" /> <label for="offline_images">Show profile pictures</label>
-						<div style="margin-left:1em" id="offline_images-options">
-							<input type="checkbox" id="offline_gray" /> <label for="offline_gray">Gray out profile pictures</label>
-						</div>
-						<input type="checkbox" id="location_offline" /> <label for="location_offline">Show location</label>
-					</div>
-					<div>
-						Name format: <input type="text" id="popup_format" class="template" />
-					</div>
-				</td><td>
-					<iframe id="online_preview" src="notification.html?dummy=true&name=nexus.unplugged&action=online" style="width:300px;height:80px;border:1px solid black"></iframe>
-					<br />
-					<iframe id="offline_preview" src="notification.html?dummy=true&name=nexus&action=offline" style="width:300px;height:80px;border:1px solid black"></iframe>
-				</td>
-			</tr><!--<tr><td colspan="3" class="hr"></td></tr><tr>
-				<th>Analytics</th>
-				<td colspan="2">
-					<input type="checkbox" id="opt_out" /> <label for="opt_out">Opt out of anonymous tracking</label>
-					<div style="margin-left:1em">
-						<em>Note: The data collected does not include your username or other account information, nor is it shared with any third parties.
-						<br />
-						It is used solely for recording the total number of active users.</em>
-					</div>
-				</td>
-			</tr>--><tr><td colspan="3" class="hr"></td></tr><tr>
-				<th>Custom CSS</th>
-				<td colspan="2">
-					<textarea id="css" rows="10" cols="65"></textarea>
-				</td>
-			</tr>
-		</table>
-
-		<footer>
-			<input type="button" id="submit" value="Save" />
-			<span id="save-msg"></span>
-		</footer>
-
-		<div id="saved">
-			<p>Saved!</p>
-		</div>
-
-		<div id="help">
-			<div class="box">
-				<a id="closeHelp" href="#">X</a>
-
-				<div id="changes" class="content"></div>
-				<div id="where_notifications" class="content">
-					<h2>What happened to the notification options?</h2>
-					<p>In Chrome 28 for Windows and ChromeOS, the Chrome team decided to remove the <tt>webkitNotifications.createHTMLNotification</tt> API, which was removed from the official spec for web pages months earlier, but had previously been stated would remain available for extensions to use. The feature is slated to be removed from Mac and Linux soon as well.</p>
-					<p>HTML notifications were what allowed you to customize the appearence of notifications to your liking, such as displaying someone's location in the corner, adding colors, or graying out images. There is still a plain text notification API available, which is what's currently being used. It does not allow for any customizations.</p>
-					<h3>Looking to the future</h3>
-					<p>Also in Chrome 28 for Windows and ChromeOS, a new <a href="http://developer.chrome.com/extensions/notifications.html">"rich" notification API</a> was introduced. It allows for certain specific deviations from plain text, but still does not offer anywhere near the amount of customizability as HTML notifications did. Support for these notifications within ChromeLife is planned for the near future. Until then, plain text will be the only option available to users of Chrome 28 on Windows or ChromeOS. HTML notifications will still be the preferred method in any browser that still supports them.</p>
 				</div>
-				<div id="format_help" class="content">
-					<h2>Name formats</h2>
-					<p>Name formats are a simple way to specify you would like a user's name to appear. The following options are supported:</p>
-					<ul>
-						<li><strong>%U</strong> - The user's legacy name, with &quot;Resident&quot; trimmed off</li>
-						<li><strong>%UU</strong> - The user's full legacy name, including &quot;Resident&quot;</li>
-						<li><strong>%u</strong> - The user's lowercase legacy name, with &quot;resident&quot; trimmed off</li>
-						<li><strong>%uu</strong> - The user's full lowercase legacy name, including &quot;resident&quot;</li>
-						<li><strong>%F</strong> - The user's first name</li>
-						<li><strong>%f</strong> - The user's first name, lowercase</li>
-						<li><strong>%L</strong> - The user's last name, with &quot;Resident&quot; trimmed off</li>
-						<li><strong>%LL</strong> - The user's last name, including &quot;Resident&quot;</li>
-						<li><strong>%l</strong> - The user's lowercase last name, with &quot;resident&quot; trimmed off</li>
-						<li><strong>%ll</strong> - The user's lowercase last name, including &quot;resident&quot;</li>
-						<li><strong>%D</strong> - The user's display name</li>
-					</ul>
-					<h3>Examples</h3>
-					<table>
-						<tr>
-							<td>Nexus Unplugged</td>
-							<td><input type="text" value="%UU" /></td>
-						</tr>
-						<tr>
-							<td>nexus.unplugged</td>
-							<td><input type="text" value="%u" /></td>
-						</tr>
-						<tr>
-							<td>N3XU5 (nexus.unplugged)</td>
-							<td><input type="text" value="%D (%u)" /></td>
-						</tr>
-						<tr>
-							<td>N3XU5 Unplugged</td>
-							<td><input type="text" value="%D %L" /></td>
-						</tr>
-					</table>
+			</div>
+			<div id="positioner">
+				<div class="preview">
+					<div class="panel panel-primary">
+						<div class="panel-heading nomarg">View</div>
+						<div class="center-view">
+							<iframe src="popup.html?dummy=true" style="width:375px;height:200px;border:none;overflow-x:hidden;box-shadow:none"></iframe>
+							<br /><br />
+							<iframe id="online_preview" src="notification.html?dummy=true&name=nexus.unplugged&action=online" style="width:300px;height:80px;border:1px solid black"></iframe>
+							<br />
+							<iframe id="offline_preview" src="notification.html?dummy=true&name=nexus&action=offline" style="width:300px;height:80px;border:1px solid black"></iframe>
+						</div>
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading nomarg">Custom CSS</div>
+						<textarea id="css"></textarea>
+					</div>
+				</div>
+				<div class="row force">
+					<div class="col-5">
+						<div class="panel panel-primary">
+							<div class="panel-heading nomarg">Popout Options</div>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<strong>Popout Behavior</strong><br/>
+
+									<div class="radio">
+										<label>
+											<input type="radio" name="popout" id="popout_default" value="default" />
+											By default
+										</label>
+									</div>
+
+									<div class="radio">
+										<label>
+											<input type="radio" name="popout" id="popout_button" value="button" />
+											Button in popup
+										</label>
+									</div>
+
+									<div class="radio">
+										<label>
+											<input type="radio" name="popout" id="popout_never" value="never" />
+											Never
+										</label>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<strong>Popout Formatting</strong><br/>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="balance" />
+											Show L$ balance
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="groups" />
+											Show groups tab
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="version" />
+											Show version
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="count_header" />
+											Show online count in header
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="link_names" />
+											Link to profiles
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="images" />
+											Show profile pictures
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="location_icon" />
+											Show location icon
+										</label>
+									</div>
+								</li>
+								<li class="list-group-item" id="location_icon-options">
+									<strong>Link Format</strong><br/>
+									<div class="radio">
+										<label>
+											<input type="radio" name="location_link_format" id="location_link_format_SLURL" value="SLURL" />
+											SLURL
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="location_link_format" id="location_link_format_native" value="native" />
+											secondlife://
+										</label>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<strong>Name Format</strong><br/>
+									<div class="row">
+										<div class="col-10">
+											<input type="text" id="name_format" class="form-control" placeholder="%UU (%u)"/>
+										</div>
+										<div class="col-2 nopad">
+											<a data-toggle="modal" href="#help" class="largtxt pull-left nameHelp">?</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-7">
+						<div class="panel panel-primary">
+							<div class="panel-heading nomarg">Icon Options</div>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<strong>Icon Online Number</strong><br/>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="count_badge" />
+											Show online count
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="hide_empty" />
+											Hide icon badge text when no friends are online
+										</label>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<strong id="colors-header">Colors</strong><br />
+                                    <div class="row margtop">
+                                        <div class="col-6" id="count_badge-options">
+								            <div class="row pad">
+									            <div class="col-2">
+										            Normal:
+									            </div>
+                                                <div class="col-1">&nbsp;</div>
+									            <div class="col-7">
+										            <input type="text" class="color" value="#40FF80" id="badge_bg_normal">
+									            </div>
+								            </div>
+								            <div class="row pad">
+									            <div class="col-2">
+										            Error:
+									            </div>
+                                                <div class="col-1">&nbsp;</div>
+									            <div class="col-7 pull-left">
+										            <input type="text" class="color" value="#FF0000" id="badge_bg_error">
+									            </div>
+								            </div>
+								            <div class="row pad">
+									            <div class="col-2">
+										            Offline:
+									            </div>
+                                                <div class="col-1">&nbsp;</div>
+									            <div class="col-7 pull-left">
+										            <input type="text" class="color" value="#808080" id="badge_bg_offline">
+									            </div>
+								            </div>
+                                        </div>
+                                        <div class="col-2" id="icon_preview">
+                                            <img src="ChromeLife_19.png" />
+					                        <div id="badge">2</div>
+                                        </div>
+                                    </div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading nomarg">Desktop Notifications</div>
+							<ul class="list-group darkbg"> <!--#YOLO-->
+								<li class="list-group-item usebottomborder" id="notificationLink-parent">
+									<a id="notificationLink" data-toggle="modal" href="#help">Where are the other options?</a>
+								</li>
+								<li class="list-group-item notopborder">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="notify_online" />
+											Contact comes online
+										</label>
+									</div>
+									<div class="margleft-20" id="notify_online-options">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" id="online_images" />
+												Show profile pictures
+											</label>
+										</div>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" id="location_online" />
+												Show location
+											</label>
+										</div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="notify_offline" />
+											Contact goes offline
+										</label>
+									</div>
+									<div class="margleft-20" id="notify_offline-options">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" id="offline_images" />
+												Show profile pictures
+											</label>
+										</div>
+										<div class="margleft-20" id="offline_images-options">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" id="offline_gray" />
+													Gray out profile pictures
+												</label>
+											</div>
+										</div>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" id="location_offline" />
+												Show location
+											</label>
+										</div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<strong>Name Format</strong><br/>
+									<div class="row">
+										<div class="col-10">
+											<input type="text" id="popup_format" class="form-control" placeholder="%UU (%u)"/>
+										</div>
+										<div class="col-2 nopad">
+											<a data-toggle="modal" href="#help" class="largtxt pull-left nameHelp">?</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
-		<script type="text/javascript" src='spectrum.js'></script>
-		<link rel='stylesheet' href='spectrum.css' />
+
+		<footer>
+			<input type="button" id="submit" value="Save" class="btn btn-primary" />
+			<span id="save-msg"></span>
+		</footer>
+
+		<div class="modal fade" id="help">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="modal-title">Help</h4>
+					</div>
+					<div class="modal-body">
+						<div id="changes"></div>
+						<div id="where_notifications">
+							<p>In Chrome 28 for Windows and ChromeOS, the Chrome team decided to remove the <tt>webkitNotifications.createHTMLNotification</tt> API, which was removed from the official spec for web pages months earlier, but had previously been stated would remain available for extensions to use. The feature has since been removed from Mac, and is slated to be removed from Linux as well.</p>
+							<p>HTML notifications were what allowed you to customize the appearence of notifications to your liking, such as displaying someone's location in the corner, adding colors, or graying out images. There is still a plain text notification API available, which is what's currently being used. It does not allow for any visual customizations.</p>
+							<h3>Looking to the future</h3>
+							<p>In the same update, a new <a href="http://developer.chrome.com/extensions/notifications.html">"rich" notification API</a> was introduced. It allows for certain specific deviations from plain text, but still does not offer anywhere near the amount of customizability as HTML notifications did. Support for these notifications within ChromeLife is planned for the near future. Until then, plain text will be the only option available to users of browsers with updated notification APIs. HTML notifications will still be the preferred method in any browser that still supports them.</p>
+						</div>
+						<div id="format_help">
+							<p>Name formats are a simple way to specify you would like a user's name to appear. The following options are supported:</p>
+							<ul>
+								<li><strong>%U</strong> - The user's legacy name, with &quot;Resident&quot; trimmed off</li>
+								<li><strong>%UU</strong> - The user's full legacy name, including &quot;Resident&quot;</li>
+								<li><strong>%u</strong> - The user's lowercase legacy name, with &quot;resident&quot; trimmed off</li>
+								<li><strong>%uu</strong> - The user's full lowercase legacy name, including &quot;resident&quot;</li>
+								<li><strong>%F</strong> - The user's first name</li>
+								<li><strong>%f</strong> - The user's first name, lowercase</li>
+								<li><strong>%L</strong> - The user's last name, with &quot;Resident&quot; trimmed off</li>
+								<li><strong>%LL</strong> - The user's last name, including &quot;Resident&quot;</li>
+								<li><strong>%l</strong> - The user's lowercase last name, with &quot;resident&quot; trimmed off</li>
+								<li><strong>%ll</strong> - The user's lowercase last name, including &quot;resident&quot;</li>
+								<li><strong>%D</strong> - The user's display name</li>
+							</ul>
+							<h3>Examples</h3>
+							<table>
+								<tr>
+									<td>Nexus Unplugged</td>
+									<td><input type="text" value="%UU" /></td>
+								</tr>
+								<tr>
+									<td>nexus.unplugged</td>
+									<td><input type="text" value="%u" /></td>
+								</tr>
+								<tr>
+									<td>N3XU5 (nexus.unplugged)</td>
+									<td><input type="text" value="%D (%u)" /></td>
+								</tr>
+								<tr>
+									<td>N3XU5 Unplugged</td>
+									<td><input type="text" value="%D %L" /></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
