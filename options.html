@@ -9,10 +9,8 @@
 		<link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
 		<script src="jquery-2.0.3.min.js" type="text/javascript"></script>
 		<script src="bootstrap.min.js" type="text/javascript"></script>
-
-        <link rel="stylesheet" href="pick-a-color-1.1.7.min.css">
-        <script src="tinycolor-0.9.15.min.js"></script>
-        <script src="pick-a-color-1.1.7.min.js"></script>
+		<script type="text/javascript" src='spectrum.js'></script>
+		<link rel='stylesheet' href='spectrum.css' />
 
 		<script type="text/javascript" src="versions.js"></script>
 		<script type="text/javascript" src="options.js"></script>
@@ -31,7 +29,7 @@
 						</ul>
 					</div>
 				</div>
-			</div>
+			</div>		
 			<div id="positioner">
 				<div class="preview">
 					<div class="panel panel-primary">
@@ -184,31 +182,31 @@
 									<strong id="colors-header">Colors</strong><br />
                                     <div class="row">
                                         <div class="col-6" id="count_badge-options">
-								            <div class="row pad">
+								            <div class="row">
 									            <div class="col-2">
 										            Normal:
 									            </div>
-                                                <div class="col-1">&nbsp;</div>
-									            <div class="col-7">
-										            <input type="text" class="pick-a-color" value="#40FF80" id="badge_bg_normal">
+                                                <div class="col-1"></div>
+									            <div class="col-7 pull-left">
+										            <input type="text" class="color" value="#40FF80" id="badge_bg_normal">
 									            </div>
 								            </div>
-								            <div class="row pad">
+								            <div class="row">
 									            <div class="col-2">
 										            Error:
 									            </div>
-                                                <div class="col-1">&nbsp;</div>
-									            <div class="col-7">
-										            <input type="text" class="pick-a-color" value="#FF0000" id="badge_bg_error">
+                                                <div class="col-1"></div>
+									            <div class="col-7 pull-left">
+										            <input type="text" class="color" value="#FF0000" id="badge_bg_error">
 									            </div>
 								            </div>
 								            <div class="row">
 									            <div class="col-2">
 										            Offline:
 									            </div>
-                                                <div class="col-1">&nbsp;</div>
-									            <div class="col-7">
-										            <input type="text" class="pick-a-color" value="#808080" id="badge_bg_offline">
+                                                <div class="col-1"></div>
+									            <div class="col-7 pull-left">
+										            <input type="text" class="color" value="#808080" id="badge_bg_offline">
 									            </div>
 								            </div>
                                         </div>
@@ -295,6 +293,7 @@
 				</div>
 			</div>
 		</div>
+
 		<footer>
 			<input type="button" id="submit" value="Save" class="btn btn-primary" />
 			<span id="save-msg"></span>

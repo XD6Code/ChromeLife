@@ -2,12 +2,9 @@ body{
     background-color: #DDDDDD;
     margin: 0 auto;
     min-width: 900px;
-    margin-bottom: 40px;
+    margin-bottom:40px;
 }#positioner{
     position: relative;
-    min-height: 700px;
-}.pad{
-    padding-bottom: 5px;
 }.force{
     padding-right:435px;
 }.preview{
@@ -15,7 +12,6 @@ body{
     position: absolute;
     top: 0;
     right: 0;
-    clear:both;
 }.container{
     max-width: 1200px !important;
     width: 90%;
