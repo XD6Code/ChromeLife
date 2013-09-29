@@ -13,7 +13,8 @@ body{
     top: 0;
     right: 0;
 }.container{
-    min-width: 90% !important;
+    max-width: 1200px !important;
+    width: 90%;
 }iframe{
     width: 375px;
     height: 225px;
