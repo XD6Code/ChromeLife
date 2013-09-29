@@ -6,6 +6,8 @@ body{
 }#positioner{
     position: relative;
     min-height: 700px;
+}.notopborder{
+    border-top: none;
 }.margtop{
     margin-top: 10px;
 }.pad{
