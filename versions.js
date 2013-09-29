@@ -8,6 +8,10 @@ var distant = ["Only show desktop notifications for certain friends",
                "SL Marketplace support"];
 
 var versions = [
+    {version: "1.0.9",
+	    name: "Strapping on a new Interface",
+	 changes: ["Complete overhual of the options page's user interface"],
+	   fixes: []},
 	{version: "1.0.8",
 	    name: "The long overdue update",
 	 changes: ["Added color options",
