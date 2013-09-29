@@ -195,32 +195,14 @@ function init(){
 	}for(var i in strings)
 		document.getElementById(strings[i]).value = options[strings[i]] || "";
 
-	for(var i in colors){
-		var spectrum_opts = {
-			showInput: true,
-			showPalette: true,
-			palette: [
-				['black', 'white', 'linden'],
-				['blue', 'yellow', 'red'],
-				['green', 'purple', 'gray']
-			],
-			showInitial: true,
-			clickoutFiresChange: true,
-			showButtons: false,
-			preferredFormat: "name",
-			change: preview,
-			move: preview
-		};
-		var color = $('#' + colors[i]);
-		if(options[colors[i]]){
-			var c = options[colors[i]];
-			color.val("rgb " + c[0] + " " + c[1] + " " + c[2]);
-		}
-
-		color.spectrum(spectrum_opts);
-		badgeColors.values[colors[i]] = color.spectrum("get").toHex();
-	}
-
+    $(".pick-a-color").pickAColor({
+      showAdvanced            : true,
+      showSavedColors         : true,
+      saveColorsPerElement    : true,
+      showHexInput            : false,
+      showBasicColors         : false,
+      fadeMenuToggle          : true
+    });
 	setStyleString(options.css);
 	preview();
 }
