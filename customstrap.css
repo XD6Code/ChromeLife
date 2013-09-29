@@ -1,111 +1,97 @@
-body {
+body{
     background-color: #DDDDDD;
     margin: 0 auto;
     min-width: 900px;
-}
-#positioner {
+}#positioner{
     position: relative;
-}
-.force {
+}.force{
     padding-right:435px;
-}
-.preview {
+}.preview{
     width: 405px;
     position: absolute;
     top: 0;
     right: 0;
-}
-iframe {
+}iframe{
     width: 375px;
     height: 225px;
     border: none;
     overflow-x: hidden;
-}
-.center-view {
+}.center-view{
     margin: 20px auto;
-}
-.navbar {
+}.navbar{
     background-color: #373737;
     border: 1px solid #BBB;
     border-top: none;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     padding: 0px;
-}
-.navbar-nav > li > a {
+}.navbar-nav > li > a{
     color: #F2f2f2;
-}
-.navbar-nav > li > a:hover {
+}.navbar-nav > li > a:hover{
     color: #3f80cc;
     background-color: #222;
-}
-.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+}.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus{
     color: #3f80cc;
     background-color: #222;
     text-shadow: -1px 1px 2px #404040;
-}
-.content {
+}.content{
     background-color: #b4ebf8;
     border: 2px solid #000;
     margin-top: 30px;
     border-radius: 10px;
-}
-.panel-primary {
+}.panel-primary{
     border-color: #BBB;
-}
-.panel-primary .panel-heading.nomarg {
+}.panel-primary .panel-heading.nomarg{
     margin-bottom: 0px;
-}
-.panel-primary .panel-heading {
+}.panel-primary .panel-heading{
     background-color: #373737;
     border-color: #BBB;
     color: #f2f2f2;
-}
-.panel .list-group {
+}.panel .list-group{
     margin-top: 0px;
-}
-.navbar-brand {
+}.navbar-brand{
     margin-left: 0px;
     color: #f2f2f2;
     padding-left: 5px;
     padding-top: 17px;
     padding-bottom: 12px;
-}
-.navbar-brand:hover {
+}.navbar-brand:hover{
     color: #f2f2f2; /* Overwrite the default */
-}
-.list-group-item {
+}.list-group-item{
     background-color: #f2f2f2;
     border-color: #CFCFCF;
-}
-.list-group-item:first-child {
+}.list-group-item:first-child{
     border:none;
-}
-input[type="color"] {
+}input[type="color"]{
     padding: 0;
     width: 40px;
     height: 20px;
     border: none;
-}
-.margleft-20 {
+}.margleft-20{
     margin-left: 20px;
-}
-.largtxt {
+}.largtxt{
     font-size: 20px;
-}
-.nopad {
+}.nopad{
     padding: 0px;
-}
-textarea {
+}textarea{
     min-height: 150px;
     margin-top:15px;
     width: 100%;
-}
-.btn.btn-primary{
+}.btn.btn-primary{
     background-color: #373737;
     border-color: #D2D2D2;
-}
-.btn.btn-primary:hover {
+}.btn.btn-primary:hover{
     background-color: #222;
     color: #3f80cc;
+}footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #eee;
+	border-top: 1px solid black;
+	padding: .5em 1em;
+}#save-msg{
+	color: #333;
+	font-weight: bold;
 }

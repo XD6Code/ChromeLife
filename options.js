@@ -27,9 +27,6 @@ window.onload = function(){
 	}, 100);
 
 	document.getElementById("submit").onclick = save;
-	document.getElementById("closeHelp").onclick = hideHelp;
-	document.getElementById("help").onclick = hideHelp;
-	document.getElementsByClassName("box")[0].onclick = cancel;
 	templates = document.getElementsByClassName('template');
 	for(var i in templates){
 		if(!templates[i].parentNode)
@@ -190,10 +187,6 @@ function showChanges(){
 	document.getElementById("format_help").style.display = "block";
 	document.getElementById("changes").style.display = "none";
 	document.getElementById("help").style.display = "block";
-}function hideHelp(){
-	document.getElementById("help").style.display = "none";
-}function cancel(e){
-	e.stopPropagation();
 }
 
 function init(){
@@ -315,7 +308,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 			var options = JSON.parse(localStorage.dummy_options);
 
 			if(options.count_badge){
-				var badge = document.getElementById('badge')
+				var badge = document.getElementById('badge');
 				badge.style.display = "inline-block";
 				// Normally when multiplying you'd Math.min() each of these values with 255, but it seems like WebKit does that already
 				var lightRGB = Math.round(options[badgeColors.last][0] * 1.5) + "," +
