@@ -94,7 +94,7 @@ body{
     margin-top:15px;
     width: 100%;
     tab-size: 4;
-    background-color: #DDD;
+    background-color: #EEE;
     font-family: monospace;
     border-color: #CCC;
     box-shadow: inset 0 0 15px #CCC;
@@ -121,7 +121,7 @@ body{
     width: 100%;
 }#badge{
 	position: relative;
-	top: 4px;
+	top: 9px;
 	right: 12px;
 	font-size: 66%;
 	color: white;
