@@ -5,6 +5,11 @@ body{
     margin-bottom:40px;
 }#positioner{
     position: relative;
+    min-height: 700px;
+}.margtop{
+    margin-top: 10px;
+}.pad{
+    padding-bottom: 5px;
 }.force{
     padding-right:435px;
 }.preview{
