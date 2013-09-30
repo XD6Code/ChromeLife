@@ -3,6 +3,19 @@ body{
     margin: 0 auto;
     min-width: 900px;
     margin-bottom:80px;
+    overflow-x: hidden
+}::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: none;
+}
+::-webkit-scrollbar-track-piece{
+    background-color: #DDDDDD;
+}
+::-webkit-scrollbar-thumb:vertical {
+    background-color: #373737;
 }#positioner{
     position: relative;
     min-height: 700px;
