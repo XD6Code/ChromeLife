@@ -2,8 +2,19 @@ body{
     background-color: #DDDDDD;
     margin: 0 auto;
     min-width: 900px;
-    margin-bottom:80px;
+    margin-bottom:30px;
     overflow-x: hidden
+}.save{
+    margin-bottom: 20px;
+}.btn.btn-warning{
+    font-size: 25px;
+    background-color: #ab0000;
+    border-color: rgba(50, 50, 50, 0.5);
+    color: #FFF;
+    box-shadow: 0px 0px 25px rgba(50, 50, 50, 0.5);
+}.btn.btn-warning:hover{
+    background-color: #7A0000;
+    color: #E6E6E6;
 }::-webkit-scrollbar {
     width: 5px;
 }
