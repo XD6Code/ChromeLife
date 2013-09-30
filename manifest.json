@@ -1,6 +1,6 @@
 {
 	"name": "ChromeLife",
-	"version": "1.0.9",
+	"version": "1.0.9.2",
 	"manifest_version": 2,
 	"description": "Displays information about your Second Life account",
 	"options_page": "options.html",
