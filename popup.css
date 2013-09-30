@@ -8,6 +8,8 @@
 	font-style: normal;
 	font-weight: 300;
 	src: local('Raleway Light'), local('Raleway-Light'), url(raleway.woff) format('woff');
+}::-webkit-scrollbar {
+    width: 0;
 }body{
 	margin: 0;
 	font-family: Raleway, Arial, Helvetica, sans-serif;
