@@ -9,7 +9,7 @@ var distant = ["Only show desktop notifications for certain friends",
 
 var versions = [
     {version: "1.0.9.2",
-	    name: "Scrolling to solutions",
+	    name: "Scrolling to Solutions",
 	 changes: ["Removed scrollbar from popout", "Added custom scrollbar to options page"],
 	   fixes: ["Fixed positioning of icon badge on the icon preview"]},
     {version: "1.0.9",
