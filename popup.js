@@ -245,7 +245,7 @@ function buildFriends(){
 
 	if(options.popout == "button" && !params.popout){
 		var img = document.createElement('img');
-		img.src = "popout.png";
+		img.src = "img/popout.png";
 		img.onclick = popout;
 		th.appendChild(img);
 	}
@@ -278,7 +278,7 @@ function buildFriends(){
 			location.className = "location";
 			if(online[i].loc){
 				var img = document.createElement("img");
-				img.src = "globe.png";
+				img.src = "img/globe.png";
 				img.name = online[i].loc.sim + '/' + online[i].loc.x + '/' + online[i].loc.y;
 				img.title = img.name;
 				img.onclick = loadMap;

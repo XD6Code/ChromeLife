@@ -2,12 +2,12 @@
 	font-family: 'Merriweather Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Merriweather Sans Regular'), local('MerriweatherSans-Regular'), url(merriweathersans.woff) format('woff');
+	src: local('Merriweather Sans Regular'), local('MerriweatherSans-Regular'), url(lib/merriweathersans.woff) format('woff');
 }@font-face{
 	font-family: 'Raleway';
 	font-style: normal;
 	font-weight: 300;
-	src: local('Raleway Light'), local('Raleway-Light'), url(raleway.woff) format('woff');
+	src: local('Raleway Light'), local('Raleway-Light'), url(lib/raleway.woff) format('woff');
 }::-webkit-scrollbar {
     width: 0;
 }body{
@@ -70,7 +70,7 @@
 	height: 50px;
 	padding: 0;
 	background-size: 100%;
-	background-image: url(default.png);
+	background-image: url(img/default.png);
 }.image div{
 	width: 50px;
 	height: 50px;

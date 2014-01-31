@@ -2,7 +2,7 @@
 	font-family: 'Raleway';
 	font-style: normal;
 	font-weight: 300;
-	src: local('Raleway Light'), local('Raleway-Light'), url(raleway.woff) format('woff');
+	src: local('Raleway Light'), local('Raleway-Light'), url(lib/raleway.woff) format('woff');
 }body{
 	font-family: Arial, Helvetica, sans-serif;
 }#notification body{
@@ -21,7 +21,7 @@
 	padding: 0;
 	background-size: 100%;
 }#notification #image{
-	background-image: url(default.png);
+	background-image: url(img/default.png);
 	width: 50px;
 	height: 50px;
 }#image div{

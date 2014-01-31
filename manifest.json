@@ -1,6 +1,6 @@
 {
 	"name": "ChromeLife",
-	"version": "1.0.9.2",
+	"version": "1.0.9.3",
 	"manifest_version": 2,
 	"description": "Displays information about your Second Life account",
 	"options_page": "options.html",
@@ -8,16 +8,16 @@
 		"page": "background.html"
 	}, "browser_action": {
 		"default_icon": {
-		  "19": "ChromeLife_19.png",
-		  "38": "ChromeLife_38.png"
+		  "19": "img/ChromeLife_19.png",
+		  "38": "img/ChromeLife_38.png"
 		},
 		"default_popup": "popup.html"
 	}, "icons": {
-		"16": "ChromeLife_16.png",
-		"48": "ChromeLife_48.png",
-		"128": "ChromeLife_128.png"
+		"16": "img/ChromeLife_16.png",
+		"48": "img/ChromeLife_48.png",
+		"128": "img/ChromeLife_128.png"
 	}, "web_accessible_resources": [
-		"default.png"
+		"img/default.png"
 	],"content_scripts": [
 		{
 			"matches": ["*://secondlife.com/my/*"],
