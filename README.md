@@ -1,7 +1,7 @@
 ChromeLife
 ==========
 
-ChromeLife uses your secondlife.com credentials to display useful at-a-glance information about your Second Life account, without requiring your username or password. Supported features include:
+ChromeLife uses your secondlife.com credentials to display useful at-a-glance information about your Second Life account. Supported features include:
 
  - Online friends
  - Display names
