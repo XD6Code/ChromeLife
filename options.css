@@ -2,7 +2,7 @@ body{
     background-color: #DDDDDD;
     margin: 0 auto;
     min-width: 900px;
-    margin-bottom:80px;
+    margin-bottom: 3em;
     overflow-x: hidden
 }::-webkit-scrollbar {
     width: 5px;
@@ -18,7 +18,6 @@ body{
     background-color: #373737;
 }#positioner{
     position: relative;
-    min-height: 700px;
 }.usebottomborder{
     margin-bottom:1px;
 }.darkbg{
