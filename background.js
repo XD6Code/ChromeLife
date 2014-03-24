@@ -500,7 +500,7 @@ var defaults = {images: true,
         badge_bg_error: [255, 0, 0],
       badge_bg_offline: [128, 128, 128],
                /*opt_out: false,*/
-                   css: ""};
+                   css: "/* If you're not familiar with CSS,\nleave this box alone */"};
 if(!localStorage.options){
 	options = defaults;
 	localStorage.options = JSON.stringify(options);
