@@ -210,20 +210,17 @@ function updateContacts(){
 							new_online.push(online[i]);
 					}for(var i in new_online){
 						var name = encodeURIComponent(new_online[i].u);
-						var url = "notification.html?name=" + name + "&action=online";
-						if(webkitNotifications.createHTMLNotification){
-							var notification = webkitNotifications.createHTMLNotification(url);
-							notification.show();
-							notifications.push(notification);
-						}else{
-							var notification = webkitNotifications.createNotification(
-								"http://my-secondlife.s3.amazonaws.com/users/" + name + "/thumb_sl_image.png",
-								formatName(new_online[i], options.popup_format),
-								"is online"
-							);
-							notification.show();
-							notifications.push(notification);
-						}
+						// While the id field could be useful, when it comes to
+						// compatibility with old code it's nothing but a bother.
+						// A unique ID makes it irrelevant.
+						var uniq_id = "online" + i + new Date().getTime();
+						chrome.notifications.create(uniq_id, {
+							type: "basic",
+							iconUrl: "http://my-secondlife.s3.amazonaws.com/users/" + name + "/thumb_sl_image.png",
+							title: formatName(new_online[i], options.popup_format),
+							message: "is online"
+						}, uselessCallback);
+						notifications.push(uniq_id);
 					}
 				}if(options.notify_offline){
 					var new_offline = [];
@@ -232,25 +229,19 @@ function updateContacts(){
 							new_offline.push(old_online[i]);
 					}for(var i in new_offline){
 						var name = encodeURIComponent(new_offline[i].u);
-						var url = "notification.html?name=" + name + "&action=offline";
-						if(webkitNotifications.createHTMLNotification){
-							var notification = webkitNotifications.createHTMLNotification(url);
-							notification.show();
-							notifications.push(notification);
-						}else{
-							var notification = webkitNotifications.createNotification(
-								"http://my-secondlife.s3.amazonaws.com/users/" + name + "/thumb_sl_image.png",
-								formatName(new_offline[i], options.popup_format),
-								"is offline"
-							);
-							notification.show();
-							notifications.push(notification);
-						}
+						var uniq_id = "offline" + i + new Date().getTime();
+						chrome.notifications.create(uniq_id, {
+							type: "basic",
+							iconUrl: "http://my-secondlife.s3.amazonaws.com/users/" + name + "/thumb_sl_image.png",
+							title: formatName(new_offline[i], options.popup_format),
+							message: "is offline"
+						}, uselessCallback);
+						notifications.push(uniq_id);
 					}
 				}if(notifications.length){
 					setTimeout(function(){
 						for(var i in notifications)
-							notifications[i].cancel();
+							chrome.notifications.clear(notifications[i], uselessCallback);
 					}, 5000);
 				}
 			}
@@ -289,6 +280,11 @@ function updateContacts(){
 	});
 	xmlhttp.open("GET", "https://secondlife.com/my/loadWidgetContent.php?widget=widgetFriends", true);
 	xmlhttp.send();
+}
+
+function uselessCallback(){
+	// This callback isn't needed by this code, but Chrome's API insists that it
+	// exist anyway. Hooray for "progress".
 }
 
 function sortGroups(a, b){
@@ -504,7 +500,7 @@ var defaults = {images: true,
         badge_bg_error: [255, 0, 0],
       badge_bg_offline: [128, 128, 128],
                /*opt_out: false,*/
-                   css: "#notification .online #action span{\n\tcolor: green;\n}#notification .offline #action span{\n\tcolor: red;\n}"};
+                   css: ""};
 if(!localStorage.options){
 	options = defaults;
 	localStorage.options = JSON.stringify(options);

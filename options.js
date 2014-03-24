@@ -59,16 +59,7 @@ window.onload = function(){
 		}
 	}());
 
-	if(!webkitNotifications.createHTMLNotification){
-		document.getElementById('online_preview').style.height = "60px";
-		document.getElementById('offline_preview').style.height = "60px";
-
-		document.getElementById('notify_online-options').style.display = "none";
-		document.getElementById('notify_offline-options').style.display = "none";
-
-		document.getElementById('notificationLink-parent').style.display = "block";
-		document.getElementById('notificationLink').onclick = showNotificationHelp;
-	}
+	document.getElementById('notificationLink').onclick = showNotificationHelp;
 
 	init();
 }

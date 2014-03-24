@@ -1,6 +1,6 @@
 {
 	"name": "ChromeLife",
-	"version": "1.0.9.3",
+	"version": "1.0.9.4",
 	"manifest_version": 2,
 	"description": "Displays information about your Second Life account",
 	"options_page": "options.html",
@@ -29,7 +29,8 @@
 	/*"content_security_policy": "script-src 'self' https://track.xd6.co; object-src 'self'",*/
 	"permissions": [
 		"notifications",
-		"*://*.secondlife.com/*"
+		"*://*.secondlife.com/*",
+		"*://my-secondlife.s3.amazonaws.com/*my-secondlife.s3.amazonaws.com"
 
 		/* Permissions needed to get direct message push notifications */
 		/* "http://js.pusherapp.com/*",

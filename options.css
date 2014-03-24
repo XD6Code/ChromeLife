@@ -96,6 +96,7 @@ body{
     border: none;
 }#offline_preview, #online_preview{
     margin: 0 auto;
+    height: 60px;
 }.margleft-20{
     margin-left: 20px;
 }.largtxt{
@@ -149,7 +150,7 @@ body{
 	padding: 0 2px;
 }.sp-replacer{
 	border-radius: 3px;
-}#changes, #notificationLink-parent{
+}#changes{
 	display: none;
 }td[rowspan="2"]{
 	vertical-align: top;

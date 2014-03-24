@@ -8,14 +8,23 @@ var distant = ["Only show desktop notifications for certain friends",
                "SL Marketplace support"];
 
 var versions = [
+    {version: "1.0.9.4",
+	    name: "Chrome 28 all over again",
+	 changes: ["Removed all support for HTML desktop notifications"],
+	   fixes: ["Updated references to notification API in preparation for changes in Chrome",
+	           "Various other bug fixes"]},
+
     {version: "1.0.9.2",
 	    name: "Scrolling to Solutions",
-	 changes: ["Removed scrollbar from popout", "Added custom scrollbar to options page"],
+	 changes: ["Removed scrollbar from popout",
+	           "Added custom scrollbar to options page"],
 	   fixes: ["Fixed positioning of icon badge on the icon preview"]},
+
     {version: "1.0.9",
 	    name: "Strapping on a new Interface",
 	 changes: ["Complete overhual of the options page's user interface"],
 	   fixes: []},
+
 	{version: "1.0.8",
 	    name: "The long overdue update",
 	 changes: ["Added color options",
