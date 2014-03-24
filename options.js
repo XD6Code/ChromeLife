@@ -284,10 +284,13 @@ function preview(){
 	}
 
 	chrome.extension.sendMessage({reload_dummy: true});
-	if(checkEdits())
+	if(checkEdits()){
 		$('#save-msg').html("&larr; Don't forget to save!");
-	else
+		$('footer').slideDown();
+	}else{
 		$('#save-msg').html("");
+		$('footer').slideUp();
+	}
 }
 
 function save(){
@@ -296,7 +299,8 @@ function save(){
 	chrome.extension.sendMessage({reload: true});
 	preview();
 
-	$("#save-msg").show().fadeOut(5000);
+	$("#save-msg").text("Saved!");
+	$('footer').slideUp();
 }
 
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse){

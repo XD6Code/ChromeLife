@@ -118,6 +118,7 @@ body{
     background-color: #222;
     color: #3f80cc;
 }footer{
+	display: none;
 	position: fixed;
 	bottom: 0;
 	left: 0;
