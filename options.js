@@ -1,13 +1,10 @@
 var bools = ["images", "balance", "groups", "count_badge", "count_header",
-             "notify_online", "notify_offline", "online_images",
-             "offline_images", "version", "link_names", "hide_empty",
-             "offline_gray", "location_online", "location_offline",
-             "location_icon"/*, "opt_out"*/];
+             "notify_online", "notify_offline", "version", "link_names",
+             "hide_empty", "location_icon"/*, "opt_out"*/];
 var strings = ["popup_format", "name_format", "css"];
 var radios = {"popout": ["default", "button", "never"],
               "location_link_format": ["SLURL", "native"]};
 var colors = ["badge_bg_normal", "badge_bg_error", "badge_bg_offline"];
-var dependencies = ["notify_online", "notify_offline", "offline_images"];
 
 var badgeColors = {"last": "badge_bg_normal", "values": {}};
 
@@ -25,12 +22,10 @@ window.onload = function(){
 		chrome.extension.sendMessage({reload_dummy: true});
 	}, 100);
 
-	document.getElementById("submit").onclick = save;
-	var nameHelp = document.getElementsByClassName('nameHelp');
-	for(var i in nameHelp)
-		nameHelp[i].onclick = showHelp;
-
-	document.getElementById("changelog_link").onclick = showChanges;
+	$("#submit").click(save);
+	$(".nameHelp").click(showHelp);
+	$("#notificationLink").click(showNotificationHelp);
+	$("#changelog_link").click(showChanges);
 
 	document.getElementById("css").onkeydown = function(e){
 		if(e.keyCode === 9){
@@ -44,12 +39,12 @@ window.onload = function(){
 	};
 
 	for(var i in bools)
-		document.getElementById(bools[i]).onclick = preview;
+		$("#" + bools[i]).click(preview);
 	for(var i in radios){
 		for(var j in radios[i])
-			document.getElementById(i + "_" + radios[i][j]).onclick = preview;
+			$("#" + i + "_" + radios[i][j]).click(preview);
 	}for(var i in strings)
-		document.getElementById(strings[i]).onkeyup = preview;
+		$("#" + strings[i]).keyup(preview);
 
 	(function(){
 		var node = document.createElement('style');
@@ -59,29 +54,26 @@ window.onload = function(){
 		}
 	}());
 
-	document.getElementById('notificationLink').onclick = showNotificationHelp;
-
 	init();
 }
 
 function showChanges(){
-	document.getElementById("where_notifications").style.display = "none";
-	document.getElementById("format_help").style.display = "none";
-	document.getElementById("changes").style.display = "block";
-	document.getElementById("changes").innerHTML = "";
-	document.getElementById("modal-title").innerHTML = "Changes";
+	$("#where_notifications").hide();
+	$("#format_help").hide();
+	$("#changes").html("").show();
+	$("#modal-title").html("Changes");
 
 	if(upcoming.length > 0){
 		var h2 = document.createElement('h2');
 		h2.innerText = "Coming Soon:";
-		document.getElementById("changes").appendChild(h2);
+		$("#changes").append(h2);
 
 		var ul = document.createElement('ul');
 		for(var i in upcoming){
 			var li = document.createElement('li');
 			li.innerText = upcoming[i];
 			ul.appendChild(li);
-		}document.getElementById("changes").appendChild(ul);
+		}$("#changes").append(ul);
 	}
 
 	if(distant.length > 0){
@@ -94,12 +86,12 @@ function showChanges(){
 			var li = document.createElement('li');
 			li.innerText = distant[i];
 			ul.appendChild(li);
-		}document.getElementById("changes").appendChild(ul);
+		}$("#changes").append(ul);
 	}
 
 	var h2 = document.createElement('h2');
 	h2.innerText = "Change Log:";
-	document.getElementById("changes").appendChild(h2);
+	$("#changes").append(h2);
 	var table = document.createElement('table');
 	for(var i in versions){
 		var tr1 = document.createElement('tr');
@@ -157,17 +149,17 @@ function showChanges(){
 			placeholder.appendChild(placeholderCol);
 			table.appendChild(placeholder);
 		}
-	}document.getElementById("changes").appendChild(table);
+	}$("#changes").append(table);
 }function showNotificationHelp(){
-	document.getElementById("where_notifications").style.display = "block";
-	document.getElementById("format_help").style.display = "none";
-	document.getElementById("changes").style.display = "none";
-	document.getElementById("modal-title").innerHTML = "What happened to the notification options?";
+	$("#where_notifications").show();
+	$("#format_help").hide();
+	$("#changes").hide();
+	$("#modal-title").text("What happened to the notification options?");
 }function showHelp(){
-	document.getElementById("where_notifications").style.display = "none";
-	document.getElementById("format_help").style.display = "block";
-	document.getElementById("changes").style.display = "none";
-	document.getElementById("modal-title").innerHTML = "Name formats";
+	$("#where_notifications").hide();
+	$("#format_help").show();
+	$("#changes").hide();
+	$("#modal-title").text("Name formats");
 }
 
 function init(){
@@ -177,14 +169,14 @@ function init(){
 
 	for(var i in bools){
 		if(options[bools[i]])
-			document.getElementById(bools[i]).checked = true;
+			$("#" + bools[i]).prop("checked", true);
 	}for(var i in radios){
 		for(var j in radios[i]){
 			if(options[i] == radios[i][j])
-				document.getElementById(i + "_" + radios[i][j]).checked = true;
+				$("#" + i + "_" + radios[i][j]).prop("checked", true);
 		}
 	}for(var i in strings)
-		document.getElementById(strings[i]).value = options[strings[i]] || "";
+		$("#" + strings[i]).val(options[strings[i]] || "");
 
 	for(var i in colors){
 		var spectrum_opts = {
@@ -219,14 +211,14 @@ function init(){
 function getOptions(){
 	var options = {};
 	for(var i in bools)
-		options[bools[i]] = document.getElementById(bools[i]).checked;
+		options[bools[i]] = $("#" + bools[i]).prop("checked");
 	for(var i in radios){
 		for(var j in radios[i]){
-			if(document.getElementById(i + "_" + radios[i][j]).checked)
+			if($("#" + i + "_" + radios[i][j]).prop("checked"))
 				options[i] = radios[i][j];
 		}
 	}for(var i in strings)
-		options[strings[i]] = document.getElementById(strings[i]).value;
+		options[strings[i]] = $("#" + strings[i]).val();
 	for(var i in colors){
 		var rgb = $('#' + colors[i]).spectrum("get").toRgb();
 		options[colors[i]] = [rgb.r, rgb.g, rgb.b];
@@ -238,23 +230,6 @@ function getOptions(){
 function preview(){
 	var options = getOptions();
 	setOptions(options, true);
-
-	var changed = [];
-	for(var i in dependencies){
-		if(document.getElementById(dependencies[i] + "-options")){
-			if(options[dependencies[i]])
-				$('#' + dependencies[i] + "-options").removeClass('disabled');
-			else
-				$('#' + dependencies[i] + "-options").addClass('disabled');
-		}var inputs = $('#' + dependencies[i] + "-options input");
-		for(var j = 0; j < inputs.length; j++){
-			if(changed.indexOf(inputs[j].id) === -1){
-				inputs[j].disabled = !options[dependencies[i]];
-				if(!options[dependencies[i]])
-					changed.push(inputs[j].id);
-			}
-		}
-	}
 
 	if(options.location_icon)
 		$('#location_icon-options').slideDown();
@@ -300,8 +275,6 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 			var options = JSON.parse(localStorage.dummy_options);
 
 			if(options.count_badge){
-				var badge = document.getElementById('badge');
-				badge.style.display = "inline-block";
 				// Normally when multiplying you'd Math.min() each of these values with 255, but it seems like WebKit does that already
 				var lightRGB = Math.round(options[badgeColors.last][0] * 1.5) + "," +
 				               Math.round(options[badgeColors.last][1] * 1.5) + "," +
@@ -309,19 +282,12 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 				var darkRGB = Math.round(options[badgeColors.last][0] / 3) + "," +
 				              Math.round(options[badgeColors.last][1] / 3) + "," +
 				              Math.round(options[badgeColors.last][2] / 3);
-				badge.style.background = "linear-gradient(to bottom,  rgba(" + lightRGB + ", .75) 0%, rgba(" + darkRGB + ", .75) 100%)";
+				$("#badge").css({
+					display: "inline-block",
+					background: "linear-gradient(to bottom,  rgba(" + lightRGB + ", .75) 0%, rgba(" + darkRGB + ", .75) 100%)"
+				})
 			}else
-				document.getElementById('badge').style.display = "none";
-
-			if(options.notify_online)
-				document.getElementById('online_preview').style.display = "block";
-			else
-				document.getElementById('online_preview').style.display = "none";
-
-			if(options.notify_offline)
-				document.getElementById('offline_preview').style.display = "block";
-			else
-				document.getElementById('offline_preview').style.display = "none";
+				$("#badge").hide();
 		}, 100);
 	}
 });

@@ -34,13 +34,9 @@
 			<div id="positioner">
 				<div class="preview">
 					<div class="panel panel-primary">
-						<div class="panel-heading nomarg">View</div>
+						<div class="panel-heading nomarg">Preview</div>
 						<div class="center-view">
 							<iframe src="popup.html?dummy=true" style="width:375px;height:200px;border:none;overflow-x:hidden;box-shadow:none"></iframe>
-							<br /><br />
-							<iframe id="online_preview" src="notification.html?dummy=true&name=nexus.unplugged&action=online" style="width:300px;height:80px;border:1px solid black"></iframe>
-							<br />
-							<iframe id="offline_preview" src="notification.html?dummy=true&name=nexus&action=offline" style="width:300px;height:80px;border:1px solid black"></iframe>
 						</div>
 					</div>
 					<div class="panel panel-primary">
@@ -274,10 +270,10 @@
 					<div class="modal-body">
 						<div id="changes"></div>
 						<div id="where_notifications">
-							<p>In Chrome 28 for Windows and ChromeOS, the Chrome team decided to remove the <tt>webkitNotifications.createHTMLNotification</tt> API, which was removed from the official spec for web pages months earlier, but had previously been stated would remain available for extensions to use. The feature has since been removed from Mac and Linux as well, so it has been removed from ChromeLife..</p>
+							<p>In Chrome 28 for Windows and ChromeOS, the Chrome team decided to remove the <tt>webkitNotifications.createHTMLNotification</tt> API, which was removed from the official spec for web pages months earlier, but had previously been stated would remain available for extensions to use. The feature has since been removed from Mac and Linux as well, so it has been removed from ChromeLife.</p>
 							<p>HTML notifications were what allowed you to customize the appearence of notifications to your liking, such as displaying someone's location in the corner, adding colors, or graying out images. There is still a plain text notification API available, which is what's currently being used. It does not allow for any visual customizations.</p>
 							<h3>Looking to the future</h3>
-							<p>In the same update, a new <a href="http://developer.chrome.com/extensions/notifications.html">"rich" notification API</a> was introduced. It allows for certain specific deviations from plain text, but still does not offer anywhere near the amount of customizability as HTML notifications did. Support for these notifications within ChromeLife is planned for some point in the future. However, Chrome's notification API has been unstable and inconsistent across platforms ever since version 28, so support for the new API is unlikely until it stablizes. Until then, plain text will be the only option available.</p>
+							<p>In the same update, a new <a href="http://developer.chrome.com/extensions/notifications.html" target="_blank">"rich" notification API</a> was introduced. It allows for certain specific deviations from plain text, but still does not offer anywhere near the amount of customizability as HTML notifications did. Support for these notifications within ChromeLife is planned for some point in the future. However, Chrome's notification API has been unstable, poorly documented, and inconsistent across platforms ever since version 28, so support for the new API is unlikely until it stablizes. Until then, plain text will be the only option available.</p>
 						</div>
 						<div id="format_help">
 							<p>Name formats are a simple way to specify you would like a user's name to appear. The following options are supported:</p>
