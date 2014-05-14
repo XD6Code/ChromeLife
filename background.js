@@ -36,6 +36,8 @@ function handleError(xmlhttp){
 			chrome.browserAction.setBadgeText({text: '!'});
 		}if(errors == 12) // Offline for 2 minutes
 			localStorage.offline = true;
+	}else if(xmlhttp.status == 401){
+		notLoggedIn();
 	}else{
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = (function(){
@@ -49,13 +51,9 @@ function handleError(xmlhttp){
 					temp = temp[1].split('"');
 					if(temp.length > 1){
 						var username = temp[0];
-						if(username == "anonymous"){
-							delete localStorage.username;
-							localStorage.notLoggedIn = true;
-							localStorage.online = "[]";
-							chrome.browserAction.setBadgeBackgroundColor({color: options.badge_bg_error});
-							chrome.browserAction.setBadgeText({text: '!'});
-						}else{
+						if(username == "anonymous")
+							notLoggedIn();
+						else{
 							if(localStorage.notLoggedIn)
 								delete localStorage.notLoggedIn;
 							localStorage.username = username;
@@ -70,6 +68,15 @@ function handleError(xmlhttp){
 	}
 }
 
+function notLoggedIn(){
+	delete localStorage.offline;
+	delete localStorage.username;
+	localStorage.notLoggedIn = true;
+	localStorage.online = "[]";
+	chrome.browserAction.setBadgeBackgroundColor({color: options.badge_bg_error});
+	chrome.browserAction.setBadgeText({text: '!'});
+}
+
 function updateContacts(){
 	debug("Updating contacts...");
 	var xmlhttp = new XMLHttpRequest();
@@ -78,10 +85,8 @@ function updateContacts(){
 			return;
 		if(xmlhttp.status == 200){
 			errors = 0;
-			if(localStorage.notLoggedIn)
-				delete localStorage.notLoggedIn;
-			if(localStorage.offline)
-				delete localStorage.offline;
+			delete localStorage.notLoggedIn;
+			delete localStorage.offline;
 
 			// This should never actually need to execute:
 			if(document.getElementsByTagName('iframe')[0].src != "about:blank")
